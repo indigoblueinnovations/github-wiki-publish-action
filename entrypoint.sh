@@ -61,10 +61,8 @@ done
 debug "Committing and pushing changes"
 (
     cd "$tmp_dir" || exit 1
-    for file in *.html
-    do
-        tmp="${file}"   # remove the file prefix
-        mv "$file" "${tmp/hmtl/md}"  # replace dots with underscore
+    for f in *.html; do 
+        mv -- "$f" "${f%.html}.md"
     done
     git add .
     git commit -m "$WIKI_COMMIT_MESSAGE"
