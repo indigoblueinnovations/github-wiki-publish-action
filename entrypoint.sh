@@ -66,6 +66,7 @@ debug "Committing and pushing changes"
         sed -r 's/\.html//g' -i "$f"
         mv -- "$f" "${f%.html}.md"
     done
+    cp index.md Home.md
     git add .
     git commit -m "$WIKI_COMMIT_MESSAGE"
     git push --set-upstream "$GIT_REPOSITORY_URL" master
