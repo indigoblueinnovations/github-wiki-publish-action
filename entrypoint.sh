@@ -63,7 +63,7 @@ debug "Committing and pushing changes"
     cd "$tmp_dir" || exit 1
     for f in *.html; do 
         sed "s/^[ \t]*//" -i "$f"
-        sed -r 's/.html//g' -i "$f"
+        sed -r 's/\.html//g' -i "$f"
         mv -- "$f" "${f%.html}.md"
     done
     git add .
