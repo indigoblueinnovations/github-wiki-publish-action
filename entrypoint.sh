@@ -61,9 +61,9 @@ done
 debug "Committing and pushing changes"
 (
     cd "$tmp_dir" || exit 1
-    for file in *
+    for file in *.html
     do
-        tmp="${*.html}"   # remove the file prefix
+        tmp="${file}"   # remove the file prefix
         mv "$file" "${tmp/hmtl/md}"  # replace dots with underscore
     done
     git add .
