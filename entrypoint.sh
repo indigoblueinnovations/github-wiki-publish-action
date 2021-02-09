@@ -62,11 +62,11 @@ debug "Committing and pushing changes"
 (
     cd "$tmp_dir" || exit 1
     for f in *.html; do 
-        sed "s/^[ \t]*//" -i "$f"
-        sed -r 's/\.html//g' -i "$f"
-        mv -- "$f" "${f%.html}.md"
+        sed "s/^[ \t]*//" -i "$f"     #remove leading whitespace to prevent codeblocks
+        sed -r 's/\.html//g' -i "$f"  #switch all *.html links to remove the .html, to match how they are in the git wiki
+        mv -- "$f" "${f%.html}.md"    #change files from .html to .md
     done
-    cp index.md Home.md
+    cp index.md Home.md       #copy index.md as to the default home.md
     git add .
     git commit -m "$WIKI_COMMIT_MESSAGE"
     git push --set-upstream "$GIT_REPOSITORY_URL" master
