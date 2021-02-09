@@ -61,6 +61,11 @@ done
 debug "Committing and pushing changes"
 (
     cd "$tmp_dir" || exit 1
+    for file in *
+    do
+        tmp="${*.html}"   # remove the file prefix
+        mv "$file" "${tmp/hmtl/md}"  # replace dots with underscore
+    done
     git add .
     git commit -m "$WIKI_COMMIT_MESSAGE"
     git push --set-upstream "$GIT_REPOSITORY_URL" master
