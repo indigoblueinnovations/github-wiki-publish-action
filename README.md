@@ -4,12 +4,12 @@ This [GitHub Action][github actions]
 publishes the contents of a directory to your project's [wiki][github wiki]
 from a workflow.
 
-This particular fork will attempt to automatically convert any html files to display as markdown, using the fact that Github's markdown parser is mostly html tolerant (with the exception of scripts, iframes, and other fancy features)
+This particular fork will attempt to automatically convert any html files in your documentation directory to display as markdown, using the fact that Github's markdown parser is mostly html tolerant (with the exception of scripts, iframes, and other fancy features)
 
 ## Usage
 
 In a new or existing workflow,
-add a step using `SwiftDocOrg/github-wiki-publish-action@v1`
+add a step using `indigoblueinnovations/github-wiki-publish-action@v1`
 with a path to a directory containing the documentation you wish to upload.
 
 ```yml
@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v1
       # Additional steps to generate documentation in "Documentation" directory
       - name: Upload Documentation to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        uses: indigoblueinnovations/github-wiki-publish-action@v1
         with:
           path: "Documentation"
         env:
