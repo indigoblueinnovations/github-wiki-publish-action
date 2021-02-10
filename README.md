@@ -4,6 +4,8 @@ This [GitHub Action][github actions]
 publishes the contents of a directory to your project's [wiki][github wiki]
 from a workflow.
 
+This particular fork will attempt to automatically convert any html files to display as markdown, using the fact that Github's markdown parser is mostly html tolerant (with the exception of scripts, iframes, and other fancy features)
+
 ## Usage
 
 In a new or existing workflow,
